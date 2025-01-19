@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.5</version>
+		<version>3.4.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.amitkurud</groupId>
@@ -17,7 +17,7 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
-		<frontend-maven-plugin.version>1.6</frontend-maven-plugin.version>
+		<frontend-maven-plugin.version>1.15.1</frontend-maven-plugin.version>
 		<node.version>v20.18.0</node.version>
 		<yarn.version>v1.22.1</yarn.version>
 	</properties>
@@ -95,24 +95,23 @@
 					<execution>
 						<id>install node</id>
 						<goals>
-							<goal>install-node-and-yarn</goal>
+							<goal>install-bun</goal>
 						</goals>
 						<configuration>
-							<nodeVersion>${node.version}</nodeVersion>
-							<yarnVersion>${yarn.version}</yarnVersion>
+							<bunVersion>1.1.45</bunVersion>
 						</configuration>
 					</execution>
 					<execution>
-						<id>yarn install</id>
+						<id>bun install</id>
 						<goals>
-							<goal>yarn</goal>
+							<goal>bun</goal>
 						</goals>
 						<phase>generate-resources</phase>
 					</execution>
 					<execution>
-						<id>yarn test</id>
+						<id>bun test</id>
 						<goals>
-							<goal>yarn</goal>
+							<goal>bun</goal>
 						</goals>
 						<phase>test</phase>
 						<configuration>
@@ -123,9 +122,9 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>yarn build</id>
+						<id>bun build</id>
 						<goals>
-							<goal>yarn</goal>
+							<goal>bun</goal>
 						</goals>
 						<phase>compile</phase>
 						<configuration>
